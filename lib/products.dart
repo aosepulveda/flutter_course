@@ -4,11 +4,10 @@ import './pages/product.dart';
 
 class Products extends StatelessWidget {
   // never change just initialized
-  final List<Map<String, String>> products;
-  final Function deleteProduct;
+  final List<Map<String, dynamic>> products;
 
   // Constructor
-  Products(this.products, {this.deleteProduct}) {
+  Products(this.products) {
     print('[Products Widget] Constructor');
   }
 
@@ -23,11 +22,8 @@ class Products extends StatelessWidget {
             children: <Widget>[
               FlatButton(
                 child: Text('Details'),
-                onPressed: () => Navigator.pushNamed<bool>(context, '/product/' + index.toString()).then((bool value) {
-                      if (value) {
-                        deleteProduct(index);
-                      }
-                    }),
+                onPressed: () => Navigator.pushNamed<bool>(
+                    context, '/product/' + index.toString()),
               )
             ],
           )
